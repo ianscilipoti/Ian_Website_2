@@ -1,176 +1,237 @@
 import * as React from "react"
+import "../styles/style.css"
+import {useState, useEffect, useRef} from "react"
+import Header from "../components/header"
+import Background from "../components/background"
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import { StaticImage, GatsbyImage, getImage  } from "gatsby-plugin-image"
+import { Scrollama, Step } from 'react-scrollama';
+import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
+import natureVideo from "../videos/Final4.mp4"
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+const IndexPage = (props) => {
+  const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+  const [count, setCount] = useState(0);
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+  const videoRef = useRef();
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+  const introVideoRef = useRef();
+  const introVideoRevRef = useRef();
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
+  //videos referenced in skills section can be defined here
+  const videoLookup = {
+    musicVideo:<video autoPlay={true} ref={videoRef} className="borderRad" loop muted style={{position:"absolute", height:"100%"}} >
+      <source src={musicVideo} type="video/mp4" />
+    </video>
+  };
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+  useEffect(() => {
+    //Implementing the setInterval method
+    const interval = setInterval(() => {
+        setCount(count + 1);
+    }, 6000);
 
-const IndexPage = () => {
-  return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
+    
+
+    //Clearing the interval
+    return () => {
+      clearInterval(interval)
+      // window.cancelAnimationFrame(req);
+    };
+  }, [count]);
+
+
+  // This callback fires when a Step hits the offset threshold. It receives the
+  // data prop of the step, which in this demo stores the index of the step.
+  const onStepEnter = ({ data }) => {
+    setCurrentStepIndex(data);
+  };
+
+  const updateStepProgress = (progress) => {
+
+  }
+
+
+  return <React.Fragment>
+    
+    <Background>
+    <Header/>
+    
+
+    <div>
+      {/* <div style={{ position: 'sticky', top: 0, border: '1px solid orchid' }}>
+        I'm sticky. The current triggered step index is: {currentStepIndex}
+      </div> */}
+      <Scrollama offset={0.0} onStepEnter={onStepEnter} onStepProgress={({progress}) => updateStepProgress(progress)}>
+        <Step data={0}>
+
+        <div className="introSection"> 
+
+          <div style={{
+                position:"sticky",
+                top:"0px",
+                width:"100%",
+                height:"100vh",
+                backgroundColor:"black",
+                overflow:"hidden",
+
+          }}>
+                <video 
+                  preload={"auto"}
+                  autoPlay={true} 
+                  loop
+                  ref={introVideoRef} 
+                  muted 
+                  style={
+                    {
+                      position:"absolute", 
+                      minWidth:"100vw", 
+                      minHeight:"100vh",
+                      height:"100vh",
+                      left:"50%",
+                      transform:"translate(-50%, -50%)",
+                      top:"50%"
+                    }
+                  }>
+                  <source src={natureVideo} type="video/mp4" />
+                </video>
+          </div>
+
+          <div style={
+            {
+              width:"50%", 
+              textAlign:"center",
+              position:"absolute",
+              left:"50%",
+              top:"50%",
+              transform:"translate(-50%, -50%)"
+            }
+          }>
+            <h1 
+            className="myVoiceColor"
+              style={{
+                // textAlign:"center"
+                fontSize:"9vw",
+                marginBottom:"10px"
+              }}
+            >
+              Hey there!
+            </h1>
+
+            <p>I am a multi-disciplinary technologist and artist</p>
+
+            <p>My work is inspired by a deep fascination with the nuances of nature, experience, and human connection.</p>
+
+            <div
+              style={{
+                display:"flex",
+                flexDirection:"row",
+                justifyContent:"space-between",
+                marginTop:"30px"
+              }}
+            >
+              <Link to="mailto: ianscilipoti@gmail.com" className="links">Email Me</Link>
+              <Link to="https://www.instagram.com/ian.gs/" className="links">Instagram</Link>
+              <Link to="https://github.com/ianscilipoti" className="links">GitHub</Link>
+            
+            </div>
+          </div>
+
+        </div>
+
+        
+        </Step>
+
+        <Step data={1}>
+          <h1 className="myVoiceColor" 
+            style={{
+                fontSize:"7vw",
+                marginBottom:"50px",
+                textAlign:"center"
+              }}>
+            My Skills / What I Love
+          </h1>
+        </Step>
+
+        {props.data.allMarkdownRemark.nodes.map((node, j) => <Step key={node.frontmatter.title} data={j+2}>
+         
+            <div className={`skillSection ${(j&1) == 0 ? "collapseRow" : "collapseRowRev"}`}>
+              <div className="skillInfo">
+                <h1 className="myVoiceColor">{node.frontmatter.title}</h1>
+                <p dangerouslySetInnerHTML={{__html: node.html}}/>
+              </div>
+
+              <div className="borderRad skillImage">
+                {node.frontmatter.videoKey == null ?
+                  node.frontmatter.previewImgs.map((img, i) => 
+                    <GatsbyImage 
+                      className={i == (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
+                      style={{position:"absolute", height:"100%"}} 
+                      key={img.childImageSharp.id} 
+                      image={getImage(img.childImageSharp.gatsbyImageData)} 
+                      alt=""/>
+                    )
+                    :
+                    videoLookup[node.frontmatter.videoKey]
+                }
+              </div>
+
+            </div>
+          </Step>
+        )}
+        
+        
+        
+
+      </Scrollama>
+
+      
+    </div>
+    </Background>
+
+  </React.Fragment>
 }
 
 export default IndexPage
 
 export const Head = () => <title>Home Page</title>
+
+export const pageQuery = graphql`
+query {
+  allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/skills/"}}
+    sort: {frontmatter: {order: ASC}}
+    ) {
+    nodes {
+      html
+      frontmatter {
+        title
+        dir
+        videoKey
+        previewImgs {
+          childImageSharp {
+            gatsbyImageData
+            id
+          }
+        }
+      }
+    }
+  }
+  allFile(
+    filter: {ext: {eq: ".png"}, dir: {regex: "/growthSeq/"}}
+    sort: {name: ASC}
+  ) {
+    nodes {
+      childImageSharp {
+        gatsbyImageData(quality: 100)
+      }
+      extension
+      dir
+    }
+  }
+}
+`
+
+
