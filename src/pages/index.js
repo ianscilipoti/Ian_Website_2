@@ -1,6 +1,6 @@
 import * as React from "react"
 import "../styles/style.css"
-import {useState, useEffect} from "react"
+import {useState, useEffect, useRef} from "react"
 import Header from "../components/header"
 import Background from "../components/background"
 import { graphql } from 'gatsby'
@@ -14,7 +14,7 @@ const IndexPage = (props) => {
 
   const [count, setCount] = useState(0);
 
-  // const videoRef = useRef();
+  const videoRef = useRef();
 
   //videos referenced in skills section can be defined here
   // const videoLookup = {
@@ -37,6 +37,10 @@ const IndexPage = (props) => {
       // window.cancelAnimationFrame(req);
     };
   }, [count]);
+
+  useEffect(() => {
+    videoRef.current.play();
+  });
 
 
   // This callback fires when a Step hits the offset threshold. It receives the
@@ -88,6 +92,7 @@ const IndexPage = (props) => {
                   preload={"auto"}
                   autoPlay={true} 
                   playsinline
+                  ref={videoRef}
                   loop
                   muted 
                   style={
