@@ -215,7 +215,7 @@ body {
     font-size: larger;
     background-color: rgb(255, 255, 255);
     width:100%;
-    height:90vh;
+    height:100vh;
     display:flex;
     flex-direction: column;
 }
@@ -278,6 +278,7 @@ body {
 
 .borderRad {
     border-radius: 30px;
+    isolation: isolate;
     overflow: hidden;
 }
 
@@ -290,3 +291,20 @@ body {
     opacity:1;
 }
 
+
+.bobAnimation {
+    animation-duration: 1s;
+    animation-name: bobAnimation;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes bobAnimation {
+    from {
+      transform: translateY(0px);
+    }
+  
+    to {
+      transform: translateY(-30px);
+    }
+  }

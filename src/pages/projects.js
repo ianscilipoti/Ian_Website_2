@@ -10,7 +10,7 @@ const ProjectTile = (props) => {
   return <div className="projectTile">
     <Link className="projectTileLink" to={props.slug}>
       {/* relevant skills section */}
-      <div className="projectRelSkills">
+      {/* <div className="projectRelSkills">
         {props.skills.map(skill => <p 
           className="borderRad"
           style={{
@@ -22,7 +22,7 @@ const ProjectTile = (props) => {
             border:"solid",
             borderColor:"lightgray"
           }}>{skill}</p>)}
-      </div>
+      </div> */}
       <GatsbyImage className="projectTileImage borderRad" image={getImage(props.image)} alt={props.title}/>  
       
       <div className="projectInfo">

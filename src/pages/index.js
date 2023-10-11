@@ -145,6 +145,17 @@ const IndexPage = (props) => {
             </div>
           </div>
 
+          <div style={{
+            position:"absolute",
+            left:"50%",
+            top:"80vh",
+            transform:"translateX(-50%)"
+          }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" className="bobAnimation" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+            </svg>
+          </div>
+
         </div>
 
         
@@ -155,15 +166,17 @@ const IndexPage = (props) => {
           margin:"auto"
         }}>
 
+
+          <br/>
           {/* <Step data={1}> */}
-          <h1 className="myVoiceColor" 
+          {/* <h1 className="myVoiceColor" 
             style={{
                 fontSize:"5vw",
                 marginBottom:"50px",
                 textAlign:"center"
               }}>
             My Skills / What I Love
-          </h1>
+          </h1> */}
           {/* </Step> */}
 
           {props.data.allMarkdownRemark.nodes.map((node, j) => <div key={node.frontmatter.title}>
