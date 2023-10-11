@@ -87,6 +87,7 @@ const IndexPage = (props) => {
                 <video 
                   preload={"auto"}
                   autoPlay={true} 
+                  playsinline
                   loop
                   muted 
                   style={
