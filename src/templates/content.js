@@ -15,7 +15,7 @@ const ContentPage = (props) => {
             <Header/>
  
             <div className="projectBody">
-                <h1 className="myVoiceColor">
+                <h1 className="myVoiceColor" style={{fontSize:"350%"}}>
                     {markdownRemark.frontmatter.title}
                 </h1>
                 <div style={{fontSize:"110%"}} dangerouslySetInnerHTML={{__html: props.data.markdownRemark.html}}></div>

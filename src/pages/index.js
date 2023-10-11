@@ -4,21 +4,18 @@ import {useState, useEffect, useRef} from "react"
 import Header from "../components/header"
 import Background from "../components/background"
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { StaticImage, GatsbyImage, getImage  } from "gatsby-plugin-image"
+import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import { Scrollama, Step } from 'react-scrollama';
 import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
 import natureVideo from "../videos/Final4.mp4"
 
 const IndexPage = (props) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [progressStage, setProgressStage] = useState(0);
 
   const [count, setCount] = useState(0);
 
   const videoRef = useRef();
-
-  const introVideoRef = useRef();
-  const introVideoRevRef = useRef();
-
 
   //videos referenced in skills section can be defined here
   const videoLookup = {
@@ -50,7 +47,17 @@ const IndexPage = (props) => {
   };
 
   const updateStepProgress = (progress) => {
-
+    if (progress > 0.1) {
+      if (progressStage != 1) {
+        setProgressStage(1);
+        console.log("set 1")
+      }
+    }
+    else {
+      if (progressStage != 0){
+        setProgressStage(0);
+      }
+    }
   }
 
 
@@ -64,8 +71,8 @@ const IndexPage = (props) => {
       {/* <div style={{ position: 'sticky', top: 0, border: '1px solid orchid' }}>
         I'm sticky. The current triggered step index is: {currentStepIndex}
       </div> */}
-      <Scrollama offset={0.0} onStepEnter={onStepEnter} onStepProgress={({progress}) => updateStepProgress(progress)}>
-        <Step data={0}>
+      {/* <Scrollama offset={0.9} onStepEnter={onStepEnter} onStepProgress={({progress}) => updateStepProgress(progress)}>
+        <Step data={0}> */}
 
         <div className="introSection"> 
 
@@ -82,14 +89,12 @@ const IndexPage = (props) => {
                   preload={"auto"}
                   autoPlay={true} 
                   loop
-                  ref={introVideoRef} 
                   muted 
                   style={
                     {
                       position:"absolute", 
                       minWidth:"100vw", 
                       minHeight:"100vh",
-                      height:"100vh",
                       left:"50%",
                       transform:"translate(-50%, -50%)",
                       top:"50%"
@@ -101,20 +106,22 @@ const IndexPage = (props) => {
 
           <div style={
             {
-              width:"50%", 
+              width:"min(400px, 90%)", 
               textAlign:"center",
               position:"absolute",
               left:"50%",
               top:"50%",
-              transform:"translate(-50%, -50%)"
+              transform:"translate(-50%, -50%)",
+              
             }
           }>
             <h1 
             className="myVoiceColor"
               style={{
                 // textAlign:"center"
-                fontSize:"9vw",
-                marginBottom:"10px"
+                fontSize:"6vw",
+                marginBottom:"10px",
+                marginTop:"0px"
               }}
             >
               Hey there!
@@ -132,9 +139,9 @@ const IndexPage = (props) => {
                 marginTop:"30px"
               }}
             >
-              <Link to="mailto: ianscilipoti@gmail.com" className="links">Email Me</Link>
-              <Link to="https://www.instagram.com/ian.gs/" className="links">Instagram</Link>
-              <Link to="https://github.com/ianscilipoti" className="links">GitHub</Link>
+              <a href="mailto: ianscilipoti@gmail.com" className="links">Email Me</a>
+              <a href="https://www.instagram.com/ian.gs/" className="links">Instagram</a>
+              <a href="https://github.com/ianscilipoti" className="links">GitHub</a>
             
             </div>
           </div>
@@ -142,9 +149,14 @@ const IndexPage = (props) => {
         </div>
 
         
-        </Step>
+        {/* </Step> */}
 
-        <Step data={1}>
+        <div style={{
+          maxWidth:"1000px",
+          margin:"auto"
+        }}>
+
+          {/* <Step data={1}> */}
           <h1 className="myVoiceColor" 
             style={{
                 fontSize:"7vw",
@@ -153,39 +165,39 @@ const IndexPage = (props) => {
               }}>
             My Skills / What I Love
           </h1>
-        </Step>
+          {/* </Step> */}
 
-        {props.data.allMarkdownRemark.nodes.map((node, j) => <Step key={node.frontmatter.title} data={j+2}>
-         
-            <div className={`skillSection ${(j&1) == 0 ? "collapseRow" : "collapseRowRev"}`}>
-              <div className="skillInfo">
-                <h1 className="myVoiceColor">{node.frontmatter.title}</h1>
-                <p dangerouslySetInnerHTML={{__html: node.html}}/>
+          {props.data.allMarkdownRemark.nodes.map((node, j) => <div key={node.frontmatter.title}>
+          {/* // <Step key={node.frontmatter.title} data={j+2}> */}
+          
+              <div className={`skillSection ${(j&1) == 0 ? "collapseRow" : "collapseRowRev"}`}>
+                <div className={`skillInfo`}>
+                  <h1 className="myVoiceColor">{node.frontmatter.title}</h1>
+                  <p dangerouslySetInnerHTML={{__html: node.html}}/>
+                </div>
+
+                <div className="borderRad skillImage">
+                  {node.frontmatter.videoKey == null ?
+                    node.frontmatter.previewImgs.map((img, i) => 
+                      <GatsbyImage 
+                        className={i == (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
+                        style={{position:"absolute", height:"100%"}} 
+                        key={img.childImageSharp.id} 
+                        image={getImage(img.childImageSharp.gatsbyImageData)} 
+                        alt=""/>
+                      )
+                      :
+                      videoLookup[node.frontmatter.videoKey]
+                  }
+                </div>
+
               </div>
-
-              <div className="borderRad skillImage">
-                {node.frontmatter.videoKey == null ?
-                  node.frontmatter.previewImgs.map((img, i) => 
-                    <GatsbyImage 
-                      className={i == (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
-                      style={{position:"absolute", height:"100%"}} 
-                      key={img.childImageSharp.id} 
-                      image={getImage(img.childImageSharp.gatsbyImageData)} 
-                      alt=""/>
-                    )
-                    :
-                    videoLookup[node.frontmatter.videoKey]
-                }
-              </div>
-
             </div>
-          </Step>
-        )}
+          )}
+        </div>
+        {/* </Step> */}
         
-        
-        
-
-      </Scrollama>
+      {/* </Scrollama> */}
 
       
     </div>
@@ -209,7 +221,6 @@ query {
       frontmatter {
         title
         dir
-        videoKey
         previewImgs {
           childImageSharp {
             gatsbyImageData

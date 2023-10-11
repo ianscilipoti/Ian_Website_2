@@ -7,11 +7,11 @@ const Header = () => {
         <Link to="/" className="title headerItem myVoiceColor">Ian Scilipoti</Link>
 
         <div className="headerNav">
-            <Link to="/gallery" className="headerItem">Gallery</Link>
+            {/* <Link to="/gallery" className="headerItem myVoiceColor">Gallery</Link> */}
             {/* <Link to="/about" className="headerItem">About</Link> */}
-            <Link to="/projects" className="headerItem">Projects</Link>
+            <Link to="/projects" className="headerItem myVoiceColor">Projects</Link>
             {/* <Link to="/music" className="headerItem">Music</Link> */}
-            <Link to="/demoreel" className="headerItem">Demo Reel</Link>
+            <Link to="/demoreel" className="headerItem myVoiceColor">Demo Reel</Link>
             {/* <Link to="/contact" className="headerItem">Contact</Link> */}
         </div>
   </header>

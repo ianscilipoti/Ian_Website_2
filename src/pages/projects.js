@@ -79,7 +79,7 @@ query {
         description
         previewImg {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, quality: 75)
+            gatsbyImageData(placeholder: BLURRED, quality: 100)
           }
         }
         skills
