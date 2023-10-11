@@ -1,28 +1,27 @@
 import * as React from "react"
 import "../styles/style.css"
-import {useState, useEffect, useRef} from "react"
+import {useState, useEffect} from "react"
 import Header from "../components/header"
 import Background from "../components/background"
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
-import { Scrollama, Step } from 'react-scrollama';
-import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
+// import { Scrollama, Step } from 'react-scrollama';
+// import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
 import natureVideo from "../videos/Final4.mp4"
 
 const IndexPage = (props) => {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [progressStage, setProgressStage] = useState(0);
+  // const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   const [count, setCount] = useState(0);
 
-  const videoRef = useRef();
+  // const videoRef = useRef();
 
   //videos referenced in skills section can be defined here
-  const videoLookup = {
-    musicVideo:<video autoPlay={true} ref={videoRef} className="borderRad" loop muted style={{position:"absolute", height:"100%"}} >
-      <source src={musicVideo} type="video/mp4" />
-    </video>
-  };
+  // const videoLookup = {
+  //   musicVideo:<video autoPlay={true} ref={videoRef} className="borderRad" loop muted style={{position:"absolute", height:"100%"}} >
+  //     <source src={musicVideo} type="video/mp4" />
+  //   </video>
+  // };
 
   useEffect(() => {
     //Implementing the setInterval method
@@ -42,23 +41,23 @@ const IndexPage = (props) => {
 
   // This callback fires when a Step hits the offset threshold. It receives the
   // data prop of the step, which in this demo stores the index of the step.
-  const onStepEnter = ({ data }) => {
-    setCurrentStepIndex(data);
-  };
+  // const onStepEnter = ({ data }) => {
+  //   setCurrentStepIndex(data);
+  // };
 
-  const updateStepProgress = (progress) => {
-    if (progress > 0.1) {
-      if (progressStage != 1) {
-        setProgressStage(1);
-        console.log("set 1")
-      }
-    }
-    else {
-      if (progressStage != 0){
-        setProgressStage(0);
-      }
-    }
-  }
+  // const updateStepProgress = (progress) => {
+  //   if (progress > 0.1) {
+  //     if (progressStage != 1) {
+  //       setProgressStage(1);
+  //       console.log("set 1")
+  //     }
+  //   }
+  //   else {
+  //     if (progressStage != 0){
+  //       setProgressStage(0);
+  //     }
+  //   }
+  // }
 
 
   return <React.Fragment>
@@ -106,7 +105,7 @@ const IndexPage = (props) => {
 
           <div style={
             {
-              width:"min(400px, 90%)", 
+              width:"min(600px, 90%)", 
               textAlign:"center",
               position:"absolute",
               left:"50%",
@@ -159,7 +158,7 @@ const IndexPage = (props) => {
           {/* <Step data={1}> */}
           <h1 className="myVoiceColor" 
             style={{
-                fontSize:"7vw",
+                fontSize:"5vw",
                 marginBottom:"50px",
                 textAlign:"center"
               }}>
@@ -170,25 +169,22 @@ const IndexPage = (props) => {
           {props.data.allMarkdownRemark.nodes.map((node, j) => <div key={node.frontmatter.title}>
           {/* // <Step key={node.frontmatter.title} data={j+2}> */}
           
-              <div className={`skillSection ${(j&1) == 0 ? "collapseRow" : "collapseRowRev"}`}>
+              <div className={`skillSection ${(j&1) === 0 ? "collapseRow" : "collapseRowRev"}`}>
                 <div className={`skillInfo`}>
                   <h1 className="myVoiceColor">{node.frontmatter.title}</h1>
                   <p dangerouslySetInnerHTML={{__html: node.html}}/>
                 </div>
 
                 <div className="borderRad skillImage">
-                  {node.frontmatter.videoKey == null ?
-                    node.frontmatter.previewImgs.map((img, i) => 
+                  {node.frontmatter.previewImgs.map((img, i) => 
                       <GatsbyImage 
-                        className={i == (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
+                        className={i === (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
                         style={{position:"absolute", height:"100%"}} 
                         key={img.childImageSharp.id} 
                         image={getImage(img.childImageSharp.gatsbyImageData)} 
-                        alt=""/>
-                      )
-                      :
-                      videoLookup[node.frontmatter.videoKey]
-                  }
+                        alt=""
+                      />
+                  )}
                 </div>
 
               </div>
@@ -208,7 +204,10 @@ const IndexPage = (props) => {
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => (<>
+  <title>Home Page</title>
+  <meta name="description" content="Contact me and learn all about what I do!" />
+</>)
 
 export const pageQuery = graphql`
 query {

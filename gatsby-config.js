@@ -36,5 +36,16 @@ module.exports = {
         path: `${__dirname}/src`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Ian Scilipoti`,
+        short_name: `IS`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        // Generate PWA icons and a favicon
+        icon: `src/images/icon.png`,
+      }
+    },
   ]
 };

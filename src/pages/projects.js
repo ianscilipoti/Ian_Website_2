@@ -65,7 +65,10 @@ const Projects = (props) => {
 
 export default Projects
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => (<>
+  <title>Projects</title>
+  <meta name="description" content="Explore all of my projects" />
+</>)
 
 export const pageQuery = graphql`
 query {

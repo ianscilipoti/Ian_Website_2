@@ -26,4 +26,7 @@ const DemoReel = () => {
 
 export default DemoReel
 
-export const Head = () => <title>Demo Reel</title>
+export const Head = () => (<>
+  <title>Demo Reel</title>
+  <meta name="description" content="See my demo reel" />
+</>)
