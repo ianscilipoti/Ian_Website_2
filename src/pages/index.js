@@ -14,7 +14,7 @@ const IndexPage = (props) => {
 
   const [count, setCount] = useState(0);
 
-  const videoRef = useRef();
+  // const videoRef = useRef();
 
   //videos referenced in skills section can be defined here
   // const videoLookup = {
@@ -38,9 +38,9 @@ const IndexPage = (props) => {
     };
   }, [count]);
 
-  useEffect(() => {
-    videoRef.current.play();
-  });
+  // useEffect(() => {
+  //   videoRef.current.play();
+  // });
 
 
   // This callback fires when a Step hits the offset threshold. It receives the
@@ -91,8 +91,8 @@ const IndexPage = (props) => {
                 <video 
                   preload={"auto"}
                   autoPlay={true} 
-                  playsinline
-                  ref={videoRef}
+                  playsInline
+                  // ref={videoRef}
                   loop
                   muted 
                   style={
