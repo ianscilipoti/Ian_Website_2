@@ -1,6 +1,6 @@
 ---
 title: Special Effects
-description: Special effects on the Unity3D Asset Store.
+description: Special effects on the Unity3D Asset Store
 previewImg: preview.png
 skills: [Particle Systems, GLSL, Fluid Simulation, 3D Modeling, Product Marketing]
 order: 5

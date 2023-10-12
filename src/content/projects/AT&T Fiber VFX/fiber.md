@@ -1,6 +1,6 @@
 ---
 title: AT&T Fiber VFX
-description: A visual exploration of AT&T Fiber cables as an animated storytelling device. 
+description: A visual exploration of AT&T Fiber cables as an animated storytelling device
 previewImg: preview.png
 skills: [Generative Graphics, Motion Design, Concepting, Web Development]
 order: 1

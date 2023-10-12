@@ -1,11 +1,11 @@
 ---
-title: Music
+title: Audio/MIDI
 dir: l
 order: 2
 previewImgs: [daw.png]
-# videoKey: musicVideo
+videoKey: musicVideo
+videoCaption: Experimental video loop of my guitar playing post-processed in Touch Designer
 ---
-As a child, my music journey began with classical piano. I later branched out to guitar, bass and music production.My favorite music has groove, a deep sense of humanity, and touch of otherworldliness. 
+As a child, my music journey began with classical piano. I later branched out to guitar, bass, songwriting, and music production. 
 
-After learning quite a bit about digital audio production, I eventually came to the conclusion that communicating emotion and complexity through simple singing and guitar/piano is a pursuit nuanced and complex enough to spend years on without worrying about computer tools.  
-
+Through a combination of audio production, generative audio projects, and a cymatics based physical audio visualizer project I prototyped, I've been able to learn a lot about audio, signals, and MIDI. 

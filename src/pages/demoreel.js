@@ -1,6 +1,7 @@
 import * as React from "react"
 import "../styles/style.css"
 import Header from "../components/header"
+import Footer from "../components/footer"
 import Background from "../components/background"
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
@@ -21,6 +22,8 @@ const DemoReel = () => {
       </iframe>
     </div>
     <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <Footer/>
   </Background>
 }
 

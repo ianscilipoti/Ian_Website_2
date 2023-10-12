@@ -1,6 +1,6 @@
 ---
 title: Terrain Engine
-description: A procedural terrain generator and low poly terrain engine.
+description: A procedural terrain generator and low poly terrain engine
 previewImg: preview.png
 skills: [Procedural Worlds, Geology Simulation, Algorithms, LOD Control]
 order: 4

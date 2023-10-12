@@ -1,6 +1,6 @@
 ---
 title: 2D World
-description: A 2D lighting and terrain engine.
+description: A 2D lighting and terrain engine
 previewImg: preview.png
 skills: [Algorithms, Mesh Generation, Real-Time]
 order: 7

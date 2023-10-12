@@ -2,11 +2,15 @@ import * as React from "react"
 import "../styles/style.css"
 import {useState, useEffect, useRef} from "react"
 import Header from "../components/header"
+import Footer from "../components/footer"
 import Background from "../components/background"
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 // import { Scrollama, Step } from 'react-scrollama';
-// import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
+import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
+import proceduralVideo from "../content/skills/Procedural/Procedural.mp4"
+import fxVideo from "../content/skills/VFX/fx.mp4"
+import codingVideo from "../content/skills/Coding/Coding.mp4"
 import natureVideo from "../videos/Final4.mp4"
 
 const IndexPage = (props) => {
@@ -17,11 +21,21 @@ const IndexPage = (props) => {
   // const videoRef = useRef();
 
   //videos referenced in skills section can be defined here
-  // const videoLookup = {
-  //   musicVideo:<video autoPlay={true} ref={videoRef} className="borderRad" loop muted style={{position:"absolute", height:"100%"}} >
-  //     <source src={musicVideo} type="video/mp4" />
-  //   </video>
-  // };
+  const videoLookup = {
+    musicVideo:<video autoPlay={true} className="" loop playsInline muted style={{position:"absolute", height:"100%"}} >
+      <source src={musicVideo} type="video/mp4" />
+    </video>,
+    proceduralVideo:<video autoPlay={true} className="" loop muted playsInline style={{position:"absolute", height:"100%"}} >
+      <source src={proceduralVideo} type="video/mp4" />
+    </video>,
+    fxVideo:<video autoPlay={true} className="" loop muted playsInline style={{position:"absolute", height:"100%"}} >
+      <source src={fxVideo} type="video/mp4" />
+    </video>,
+    codingVideo:<video autoPlay={true} className="" loop muted playsInline style={{position:"absolute", height:"100%"}} >
+      <source src={codingVideo} type="video/mp4" />
+    </video>,
+
+  };
 
   useEffect(() => {
     //Implementing the setInterval method
@@ -124,7 +138,7 @@ const IndexPage = (props) => {
             className="myVoiceColor"
               style={{
                 // textAlign:"center"
-                fontSize:"6vw",
+                fontSize:"230%",
                 marginBottom:"10px",
                 marginTop:"0px"
               }}
@@ -132,7 +146,7 @@ const IndexPage = (props) => {
               Hey there!
             </h1>
 
-            <p>I am a multi-disciplinary technologist and artist</p>
+            <p>I am a multi-disciplinary technologist and artist.</p>
 
             <p>My work is inspired by a deep fascination with the nuances of nature, experience, and human connection.</p>
 
@@ -141,12 +155,15 @@ const IndexPage = (props) => {
                 display:"flex",
                 flexDirection:"row",
                 justifyContent:"space-between",
-                marginTop:"30px"
+                marginTop:"55px",
+                fontSize:"150%"
               }}
             >
-              <a href="mailto: ianscilipoti@gmail.com" className="links">Email Me</a>
-              <a href="https://www.instagram.com/ian.gs/" className="links">Instagram</a>
-              <a href="https://github.com/ianscilipoti" className="links">GitHub</a>
+              <Link to="/projects" className="links navColor">Projects</Link>
+              <Link to="/demoreel" className="links navColor">Demo Reel</Link>
+              <a href="mailto: ianscilipoti@gmail.com" className="links navColor">Email Me</a>
+              {/* <a href="https://www.instagram.com/ian.gs/" className="links">Instagram</a> */}
+              {/* <a href="https://github.com/ianscilipoti" className="links">GitHub</a> */}
             
             </div>
           </div>
@@ -194,26 +211,42 @@ const IndexPage = (props) => {
                   <p dangerouslySetInnerHTML={{__html: node.html}}/>
                 </div>
 
-                <div className="borderRad skillImage">
-                  {node.frontmatter.previewImgs.map((img, i) => 
-                      <GatsbyImage 
-                        className={i === (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
-                        style={{position:"absolute", height:"100%"}} 
-                        key={img.childImageSharp.id} 
-                        image={getImage(img.childImageSharp.gatsbyImageData)} 
-                        alt=""
-                      />
-                  )}
-                </div>
+                {/* <div className="borderRad skillImage"> */}
+                  {node.frontmatter.videoKey == null ? 
+                    <div className="borderRad skillImage">
+                      {node.frontmatter.previewImgs.map((img, i) => 
+                          <GatsbyImage 
+                            className={i === (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
+                            style={{position:"absolute", height:"100%"}} 
+                            key={img.childImageSharp.id} 
+                            image={getImage(img.childImageSharp.gatsbyImageData)} 
+                            alt=""
+                          />
+                      )}
+                    </div>
+                  : 
+                    <div>
+                      <div className="borderRad skillImage"> 
+                        {videoLookup[node.frontmatter.videoKey]} 
+                      </div>
+                      <p className="videoCaption">{node.frontmatter.videoCaption ? node.frontmatter.videoCaption : ''}</p>
+                    </div>
+                  }
+                  
+                {/* </div> */}
+                
 
               </div>
             </div>
           )}
+          <h1 style={{paddingBottom:"50px", textAlign:"center", marginBottom:"0px"}}>Check out my <Link to="/projects" className="navColor links">projects page</Link> for more projects/details!</h1>
+          
         </div>
+        <Footer/>
         {/* </Step> */}
         
       {/* </Scrollama> */}
-
+      
       
     </div>
     </Background>
@@ -245,19 +278,9 @@ query {
             id
           }
         }
+        videoKey
+        videoCaption
       }
-    }
-  }
-  allFile(
-    filter: {ext: {eq: ".png"}, dir: {regex: "/growthSeq/"}}
-    sort: {name: ASC}
-  ) {
-    nodes {
-      childImageSharp {
-        gatsbyImageData(quality: 100)
-      }
-      extension
-      dir
     }
   }
 }

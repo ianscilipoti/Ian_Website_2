@@ -1,6 +1,6 @@
 ---
 title: Cities
-description: A procedural city generator.
+description: A procedural city generator
 previewImg: preview.png
 skills: [Data Structures, Procedural Generation]
 order: 3

@@ -1,6 +1,6 @@
 ---
 title: Painter
-description: An automatic painting algorithm.
+description: An automatic painting algorithm
 previewImg: preview.png
 skills: [Simulation, Generative Art, Processing]
 order: 8
