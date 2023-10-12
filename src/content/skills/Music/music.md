@@ -4,7 +4,7 @@ dir: l
 order: 2
 previewImgs: [daw.png]
 videoKey: musicVideo
-videoCaption: Music visualized on water via a prototyped audio visualizer.
+videoCaption: Music visualized on water via a prototyped audio visualizer
 ---
 As a child, my music journey began with classical piano. I later branched out to guitar, bass, songwriting, and music production. 
 
