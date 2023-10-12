@@ -4,7 +4,7 @@ dir: r
 order: 1
 previewImgs: [aurora.png, firepack.png]
 videoKey: fxVideo
-videoCaption: Real-time fire particle effect and corresponding 3D assets rendered in Unity3D
+videoCaption: Real-time fire particle FX and custom 3D assets rendered in Unity3D
 ---
 My first explorations of graphics, software dev, etc began at the age of 12 with a fascination for visual effects. I explored creating realistic fires, explosions, auroras, water etc. 
 

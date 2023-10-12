@@ -7,8 +7,8 @@ import Background from "../components/background"
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 // import { Scrollama, Step } from 'react-scrollama';
-import musicVideo from "../content/skills/music/guitarLoop_outline.mp4"
-import proceduralVideo from "../content/skills/Procedural/Procedural.mp4"
+import musicVideo from "../content/skills/music/audio.mp4"
+import proceduralVideo from "../content/skills/Procedural/Rivers.mp4"
 import fxVideo from "../content/skills/VFX/fx.mp4"
 import codingVideo from "../content/skills/Coding/Coding.mp4"
 import natureVideo from "../videos/Final4.mp4"
