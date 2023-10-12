@@ -138,7 +138,7 @@ const IndexPage = (props) => {
             className="myVoiceColor"
               style={{
                 // textAlign:"center"
-                fontSize:"230%",
+                fontSize:"200%",
                 marginBottom:"10px",
                 marginTop:"0px"
               }}
@@ -153,17 +153,15 @@ const IndexPage = (props) => {
             <div
               style={{
                 display:"flex",
-                flexDirection:"row",
                 justifyContent:"space-between",
                 marginTop:"55px",
                 fontSize:"150%"
               }}
+              className="collapseRow"
             >
               <Link to="/projects" className="links navColor">Projects</Link>
               <Link to="/demoreel" className="links navColor">Demo Reel</Link>
               <a href="mailto: ianscilipoti@gmail.com" className="links navColor">Email Me</a>
-              {/* <a href="https://www.instagram.com/ian.gs/" className="links">Instagram</a> */}
-              {/* <a href="https://github.com/ianscilipoti" className="links">GitHub</a> */}
             
             </div>
           </div>
