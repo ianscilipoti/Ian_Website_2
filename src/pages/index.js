@@ -11,7 +11,7 @@ import musicVideo from "../content/skills/Music/audioViz3.mp4"
 import proceduralVideo from "../content/skills/Procedural/Rivers_Small.mp4"
 import fxVideo from "../content/skills/VFX/FireFX.mp4"
 import codingVideo from "../content/skills/Coding/Coding.mp4"
-import natureVideo from "../videos/Final4_compressed.mp4"
+import natureVideo from "../videos/Final4.mp4"
 
 const IndexPage = (props) => {
   // const [currentStepIndex, setCurrentStepIndex] = useState(0);
