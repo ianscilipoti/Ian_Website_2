@@ -250,7 +250,12 @@ body {
     aspect-ratio: 1 / 1;
     /* height:45vw; */
     position:relative;
-    overflow:hidden;
+    /* overflow:hidden; */
+    margin: 0 30px;
+}
+
+.skillVideo {
+    width:100%;
 }
 
 .skillInfo {
@@ -265,7 +270,7 @@ body {
     transform:translateY(20px);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
     .collapseRow {
         flex-direction: column;
     }

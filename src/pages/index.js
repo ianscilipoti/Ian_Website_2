@@ -22,16 +22,16 @@ const IndexPage = (props) => {
 
   //videos referenced in skills section can be defined here
   const videoLookup = {
-    musicVideo:<video autoPlay={true} className="" loop playsInline muted style={{position:"absolute", height:"100%"}} >
+    musicVideo:<video autoPlay={true} className="borderRad skillVideo" loop playsInline muted>
       <source src={musicVideo} type="video/mp4" />
     </video>,
-    proceduralVideo:<video autoPlay={true} className="" loop muted playsInline style={{position:"absolute", height:"100%"}} >
+    proceduralVideo:<video autoPlay={true} className="borderRad skillVideo" loop muted playsInline>
       <source src={proceduralVideo} type="video/mp4" />
     </video>,
-    fxVideo:<video autoPlay={true} className="" loop muted playsInline style={{position:"absolute", height:"100%"}} >
+    fxVideo:<video autoPlay={true} className="borderRad skillVideo" loop muted playsInline>
       <source src={fxVideo} type="video/mp4" />
     </video>,
-    codingVideo:<video autoPlay={true} className="" loop muted playsInline style={{position:"absolute", height:"100%"}} >
+    codingVideo:<video autoPlay={true} className="borderRad skillVideo" loop muted playsInline>
       <source src={codingVideo} type="video/mp4" />
     </video>,
 
@@ -187,18 +187,7 @@ const IndexPage = (props) => {
           margin:"auto"
         }}>
 
-
           <br/>
-          {/* <Step data={1}> */}
-          {/* <h1 className="myVoiceColor" 
-            style={{
-                fontSize:"5vw",
-                marginBottom:"50px",
-                textAlign:"center"
-              }}>
-            My Skills / What I Love
-          </h1> */}
-          {/* </Step> */}
 
           {props.data.allMarkdownRemark.nodes.map((node, j) => <div key={node.frontmatter.title}>
           {/* // <Step key={node.frontmatter.title} data={j+2}> */}
@@ -223,10 +212,8 @@ const IndexPage = (props) => {
                       )}
                     </div>
                   : 
-                    <div>
-                      <div className="borderRad skillImage"> 
-                        {videoLookup[node.frontmatter.videoKey]} 
-                      </div>
+                    <div className=" skillImage">
+                      {videoLookup[node.frontmatter.videoKey]} 
                       <p className="videoCaption">{node.frontmatter.videoCaption ? node.frontmatter.videoCaption : ''}</p>
                     </div>
                   }
