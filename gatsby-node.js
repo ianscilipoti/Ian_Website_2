@@ -7,6 +7,7 @@ exports.onCreateNode = ({node, actions}) => {
     
     const slug = path.basename(node.fileAbsolutePath, '.md')
     const directory = path.dirname(node.fileAbsolutePath).split(path.sep).slice(-2)[0]
+    console.log(directory);
     createNodeField({
       node,
       name: 'slug',

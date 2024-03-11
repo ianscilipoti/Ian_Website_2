@@ -180,6 +180,9 @@ body {
     z-index: 2;
     display: flex;
     flex-wrap: wrap;
+    padding:5px;
+    top:0px;
+    left:0px;
 }
 
 
