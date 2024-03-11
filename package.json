@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "buildNet": "npm install && gatsby build"
   },
   "dependencies": {
     "gatsby": "^5.11.0",
