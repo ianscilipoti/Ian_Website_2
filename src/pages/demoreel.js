@@ -11,6 +11,11 @@ const DemoReel = () => {
   return <Background>
     <Header/>
     
+    <div style={{paddingTop:"70px", paddingLeft:"70px", "paddingRight":"70px"}}>
+      <p>The demo reel below represents the work I'm most proud of up until around 2020. After this time, having been employed full time I've had less ability to pursue personal projects.</p>
+
+      <p>All work in the video below is my own original projects and prototypes including all art, code, music, video editing, etc. </p>
+    </div>
 
     <div style={{width:"100vw", height:"90vh", paddingTop:"70px", position:"relative"}}>
       <iframe src="https://player.vimeo.com/video/670963411?h=03762a7e44&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
