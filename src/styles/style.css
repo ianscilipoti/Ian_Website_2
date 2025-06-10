@@ -183,9 +183,7 @@ body {
         width:80vw;
     }
     
-    .profilePic {
-        display: none;
-    }
+   
     
     .headerItem {
         font-size: 1em;
@@ -329,6 +327,10 @@ body {
     }
     .heroFont {
         font-size:1em;
+    }
+    
+    .profilePic {
+        display: none;
     }
 }
 
