@@ -24,6 +24,8 @@
     height:100%;
 }
 
+
+
 .profilePic {
     
 }
@@ -261,6 +263,10 @@ body {
     left:50%;
 }
 
+.introText {
+    width:min(500px, 90%);
+}
+
 .genericSection {
     height:100vh;
 }
@@ -331,6 +337,10 @@ body {
     
     .profilePic {
         display: none;
+    }
+    
+    .introText {
+        width:95vw;
     }
 }
 
