@@ -120,7 +120,7 @@ const IndexPage = (props) => {
               height:"min(300px, 50%)", 
             }}>
               <StaticImage 
-                className="borderRad"
+                className="borderRad profilePic"
                 style={{
                   
                   // borderRadius:"25%"
