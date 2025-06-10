@@ -116,13 +116,13 @@ const IndexPage = (props) => {
               flexDirection:"column",
               alignItems:"center",
               display:"flex",
-              width:"min(300px, 50%)", 
-              height:"min(300px, 50%)", 
+               
             }}>
               <StaticImage 
                 className="borderRad profilePic"
                 style={{
-                  
+                  width:"min(300px, 50%)", 
+                  height:"min(300px, 50%)",
                   // borderRadius:"25%"
                 }} 
                 src={"../content/skills/Ian/ian2.jpeg"} 
