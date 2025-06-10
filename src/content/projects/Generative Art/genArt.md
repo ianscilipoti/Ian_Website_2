@@ -1,7 +1,7 @@
 ---
 title: Generative Art
 description: A series of generative / digital art pieces
-previewImg: preview.png
+previewImg: preview1.jpeg
 skills: [Node Based Systems, 3D Rendering, Procedural Content]
 order: -1
 ---

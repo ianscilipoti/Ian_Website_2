@@ -26,7 +26,7 @@
 
 .heroBG {
     /* background-image: url("../images/bg3.png"); */
-    background-color: rgb(10, 10, 10);
+    /* background-color: rgb(10, 10, 10); */
     background-size:cover;
     /* width:100vw;
     height:100vh; */
@@ -36,6 +36,10 @@
     /* height:100vh; */
 }
 
+.heroFont {
+    font-size:26px;
+}
+
 .title {
     margin-left:20px;
     text-decoration: none;
@@ -43,7 +47,7 @@
 }
 
 .navColor {
-    color:rgb(193, 193, 193);
+    color:rgb(52, 157, 70);
     font-weight: bold;
 }
 
@@ -54,7 +58,7 @@
 }
 
 .links:hover {
-    color:white;
+    color:rgb(43, 182, 66);
 }
 
 .headerNav {
@@ -70,21 +74,21 @@
     font-size: min(5vw, 150%);
 }
 .headerItem:hover {
-    color:rgb(255, 255, 255);
+    color:rgb(115, 115, 115);
     cursor: pointer;
 }
 
 body {
     margin:0px;
     padding:0px;
-    background-color:rgb(21, 20, 20);
+    background-color: #f7fff3;
     font-family: Helvetica, Arial sans-serif;
-    color:rgb(143, 153, 168);
+    color:rgb(89, 109, 90);
     font-family: "Alice";
 }
 
 .myVoiceColor {
-    color:rgb(133, 177, 225);
+    color:#0a7b1f;
     /* filter: drop-shadow(0 0 5px rgba(97, 62, 113, 0.915)); */
     font-family: "Alice";
     font-weight: bold;
@@ -131,7 +135,8 @@ body {
 }
 
 .projectTile {
-    width:40vw;
+    width:30vw;
+    display:flex;
     /* height:45vw; */
     margin-top:55px;
     /* overflow:hidden; */
@@ -139,13 +144,30 @@ body {
 }
 
 .projectTileImage {
-    height: 40vw;
-    width: 40vw;
+    height: 30vw;
+    width: 30vw;
     border-style: solid;
     border-width: 0px;
     transition: border-radius 0.5s, border-width 0.5s;
     box-sizing: border-box;
 }
+
+.portfolioContent {
+    display:flex;
+}
+
+.portfolioInfo {
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    /* position:absolute; */
+    z-index: 1;
+    padding-top:10px;
+    /* color:white; */
+    bottom:0px;
+    margin-left:30px;
+    /* text-align: center; */
+}
+
+
 
 @media screen and (max-width: 600px) {
     .projectTileImage {
@@ -193,7 +215,7 @@ body {
 }
 
 .projectTileLink:hover {
-    color:white;
+    color:black !important;
 }
 
 .projectTitleArrow {
@@ -221,11 +243,12 @@ body {
 
 .introSection {
     font-size: larger;
-    background-color: rgb(255, 255, 255);
+    /* background-color: #F7FFF3; */
     width:100%;
-    height:100vh;
+    height:95vh;
     display:flex;
     flex-direction: column;
+    left:50%;
 }
 
 .genericSection {
@@ -249,8 +272,9 @@ body {
 }
 
 .skillImage {
-    width:40vw;
+    width: min(400px, 40vw);
     aspect-ratio: 1 / 1;
+    
     /* height:45vw; */
     position:relative;
     /* overflow:hidden; */
@@ -284,10 +308,15 @@ body {
 
     .skillInfo {
         width:95vw;
+        margin-left: 2.5vw;
     }
     .skillImage {
         width:95vw;
         height:95vw;
+        margin:2.5vw;
+    }
+    .heroFont {
+        font-size:18px;
     }
 }
 

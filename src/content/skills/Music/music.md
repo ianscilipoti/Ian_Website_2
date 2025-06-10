@@ -1,11 +1,11 @@
 ---
-title: Audio/MIDI
+title: Music / Experience Design
 dir: l
-order: 2
+order: 3
 previewImgs: [daw.png]
 videoKey: musicVideo
 videoCaption: Music visualized on water via a prototyped audio visualizer
 ---
-As a child, my music journey began with classical piano. I later branched out to guitar, bass, songwriting, and music production. 
+Since I was a kid, I've been passionate about music. As a kid I learned classical pieces by Liszt and Chopin. In college, I expanded to learn guitar, bass, and music production. 
 
-Through a combination of working on music production, generative audio/MIDI, and a cymatics based physical audio visualizer, I've been able to learn a lot about audio, signals, and MIDI. 
+Fast forward to now, playing in live bands has exposed me to a lot of core principles of audio/video systems, sound engineering, and learning to have fun in front of crowds!

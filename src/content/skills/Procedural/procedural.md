@@ -6,6 +6,7 @@ previewImgs: [action.png, generative.png, city.jpg]
 videoKey: proceduralVideo
 videoCaption: Delaunay triangulation based procedural terrain engine
 ---
-My interest in procedural/generative graphics is an extension of my curiosity for the world. As a kid I was always wondering how things worked. I view the process of creating procedural systems as a way of paying tribute and respect to the complexity and beauty of our world. 
 
-In order to write code that can carve flowing rivers in randomly generated terrain, plan city layouts, and mimic growing plants, I first spend a lot of time thinking through the structures and forms of the real world counterpart.
+I've had a long time fascination with procedurally generated content (algorithmic, not AI). This interest is an extension of my curiosity for the world around me. If you can write code to generate and model an advanced system, you have to understand that system pretty well first! 
+
+My procedural generation experiments have covered stylized low poly infinite worlds, city layouts, geology simulations, and more.  

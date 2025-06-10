@@ -1,17 +1,18 @@
 import * as React from "react"
 import "../styles/style.css"
-import {useState, useEffect, useRef} from "react"
+import {useState, useEffect} from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Background from "../components/background"
 import { graphql, Link } from 'gatsby'
-import { GatsbyImage, getImage  } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage, getImage  } from "gatsby-plugin-image"
 // import { Scrollama, Step } from 'react-scrollama';
 import musicVideo from "../content/skills/Music/audioViz3.mp4"
 import proceduralVideo from "../content/skills/Procedural/Rivers_Small.mp4"
 import fxVideo from "../content/skills/VFX/FireFX.mp4"
 import codingVideo from "../content/skills/Coding/Coding.mp4"
-import natureVideo from "../videos/Final4.mp4"
+import artVideo from "../content/skills/Art/art1.mp4"
+// import natureVideo from "../videos/Final4.mp4"
 
 const IndexPage = (props) => {
   // const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -34,6 +35,9 @@ const IndexPage = (props) => {
     codingVideo:<video autoPlay={true} className="borderRad skillVideo" loop muted playsInline>
       <source src={codingVideo} type="video/mp4" />
     </video>,
+    artVideo:<video autoPlay={true} className="borderRad skillVideo" loop muted playsInline>
+    <source src={artVideo} type="video/mp4" />
+  </video>,
 
   };
 
@@ -52,31 +56,6 @@ const IndexPage = (props) => {
     };
   }, [count]);
 
-  // useEffect(() => {
-  //   videoRef.current.play();
-  // });
-
-
-  // This callback fires when a Step hits the offset threshold. It receives the
-  // data prop of the step, which in this demo stores the index of the step.
-  // const onStepEnter = ({ data }) => {
-  //   setCurrentStepIndex(data);
-  // };
-
-  // const updateStepProgress = (progress) => {
-  //   if (progress > 0.1) {
-  //     if (progressStage != 1) {
-  //       setProgressStage(1);
-  //       console.log("set 1")
-  //     }
-  //   }
-  //   else {
-  //     if (progressStage != 0){
-  //       setProgressStage(0);
-  //     }
-  //   }
-  // }
-
 
   return <React.Fragment>
     
@@ -85,96 +64,110 @@ const IndexPage = (props) => {
     
 
     <div>
-      {/* <div style={{ position: 'sticky', top: 0, border: '1px solid orchid' }}>
-        I'm sticky. The current triggered step index is: {currentStepIndex}
-      </div> */}
-      {/* <Scrollama offset={0.9} onStepEnter={onStepEnter} onStepProgress={({progress}) => updateStepProgress(progress)}>
-        <Step data={0}> */}
-
         <div className="introSection"> 
-
-          <div style={{
-                position:"sticky",
-                top:"0px",
-                width:"100%",
-                height:"100vh",
-                backgroundColor:"black",
-                overflow:"hidden",
-
-          }}>
-                <video 
-                  preload={"auto"}
-                  autoPlay={true} 
-                  playsInline
-                  // ref={videoRef}
-                  loop
-                  muted 
-                  style={
-                    {
-                      position:"absolute", 
-                      minWidth:"100vw", 
-                      minHeight:"100vh",
-                      left:"50%",
-                      transform:"translate(-50%, -50%)",
-                      top:"50%"
-                    }
-                  }>
-                  <source src={natureVideo} type="video/mp4" />
-                </video>
-          </div>
-
-          <div style={
+          <div className="collapseRow" style={
             {
-              width:"min(600px, 90%)", 
-              textAlign:"center",
-              position:"absolute",
+              display:"flex", 
+              justifyContent:"space-between",
+              alignItems:"center",
+              width:"min(1000px, 90%)", 
               left:"50%",
               top:"50%",
-              transform:"translate(-50%, -50%)",
+              position:"absolute",
+              transform:"translate(-50%, -75%)",
+            }}>
+
+            <div style={
+              {
+                width:"min(500px, 90%)", 
+                // textAlign:"center",
+                // position:"absolute",
+                // left:"50%",
+                // top:"50%",
+                // transform:"translate(-50%, -50%)",
+                
+              }
+            } className="heroFont">
+
+              <p className="myVoiceColor"> Hello! </p>
+
+              <p> I am a curiosity driven cross-functional technologist with a knack for communication and empathy.</p>
+                
+              <p> I believe that asking the right questions is half the battle. I seek purpose and intentionality in my work. </p>
+
+              {/* <div
+                style={{
+                  display:"flex",
+                  justifyContent:"space-between",
+                  marginTop:"55px",
+                  fontSize:"150%"
+                }}
+                className="collapseRow"
+              >
+                <Link to="/Work" className="links navColor">Case Studies</Link>
+                <Link to="/projects" className="links navColor">Projects</Link>
+                <a href="mailto: ianscilipoti@gmail.com" className="links navColor">Email Me</a>
               
-            }
-          }>
-            <h1 
-            className="myVoiceColor"
-              style={{
-                // textAlign:"center"
-                fontSize:"200%",
-                marginBottom:"10px",
-                marginTop:"0px"
-              }}
-            >
-              Hey there!
-            </h1>
-
-            <p>I am a multi-disciplinary technologist and artist.</p>
-
-            <p>My work is inspired by a deep fascination with the nuances of nature, experience, and human connection.</p>
-
-            <div
-              style={{
-                display:"flex",
-                justifyContent:"space-between",
-                marginTop:"55px",
-                fontSize:"150%"
-              }}
-              className="collapseRow"
-            >
-              <Link to="/projects" className="links navColor">Projects</Link>
-              <Link to="/demoreel" className="links navColor">Demo Reel</Link>
-              <a href="mailto: ianscilipoti@gmail.com" className="links navColor">Email Me</a>
-            
+              </div> */}
             </div>
+
+            <div style={{
+              flexDirection:"column",
+              alignItems:"center",
+              display:"flex"
+            }}>
+              <StaticImage 
+                className="borderRad"
+                style={{
+                  width:"min(300px, 90%)", 
+                  height:"min(300px, 90%)", 
+                  // borderRadius:"25%"
+                }} 
+                src={"../content/skills/Ian/Ian.jpeg"} 
+                alt=""
+              />
+              <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"20px", fontSize:"1.3em"}} className="links myVoiceColor">Email Me!</a>
+            </div>
+            
           </div>
+
+          <p style={{
+            position:"absolute",
+            width:"100%",
+            textAlign:"center",
+            top:"67vh"
+          }} className="myVoiceColor">Professional Expertise:</p>
+
+          <p style={{
+            position:"absolute",
+            width:"100%",
+            textAlign:"center",
+            top:"70vh"
+          }}>Full stack prototyping/dev • Vendor/client communication • Emerging technology • Technical liaison</p>
 
           <div style={{
             position:"absolute",
             left:"50%",
-            top:"80vh",
-            transform:"translateX(-50%)"
+            top:"85vh",
+            transform:"translateX(-50%)",
+            display:"flex", 
+            flexDirection:"row",
+            justifyContent:"start",
+            flexGrow:"0"
           }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" className="bobAnimation" viewBox="0 0 16 16">
-              <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-            </svg>
+            {/* <Link to="/portfolio" className="myVoiceColor links">Check out my portfolio</Link> 
+            <p style={{margin:"0px 30px"}}>or </p> */}
+            <div style={{
+              display:"flex",
+              alignItems:"center",
+              textAlign:"center",
+              flexDirection:"column"
+            }}>
+              <p style={{marginTop:"0px"}}>more about me</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" className="bobAnimation" viewBox="0 0 16 16">
+                <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+              </svg>
+            </div>
           </div>
 
         </div>
@@ -224,7 +217,7 @@ const IndexPage = (props) => {
               </div>
             </div>
           )}
-          <h1 style={{paddingBottom:"50px", textAlign:"center", marginBottom:"0px"}}>Check out my <Link to="/projects" className="navColor links">projects page</Link> for more projects/details!</h1>
+          <h1 style={{paddingBottom:"50px", textAlign:"center", marginBottom:"0px"}}>Check out my <Link to="/portfolio" className="myVoiceColor links">portfolio</Link> for examples of my professional contributions and my <Link to="/projects" className="myVoiceColor links">projects page</Link> for my personal work!</h1>
           
         </div>
         <Footer/>

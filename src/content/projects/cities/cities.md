@@ -1,7 +1,7 @@
 ---
 title: Cities
 description: A procedural city generator
-previewImg: preview.png
+previewImg: preview.jpeg
 skills: [Data Structures, Procedural Generation]
 order: 3
 ---
