@@ -125,7 +125,7 @@ const IndexPage = (props) => {
                   
                   // borderRadius:"25%"
                 }} 
-                src={"../content/skills/Ian/Ian.jpeg"} 
+                src={"../content/skills/Ian/ian2.jpeg"} 
                 alt=""
               />
               <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"20px"}} className="links myVoiceColor">Email Me!</a>
