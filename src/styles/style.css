@@ -24,6 +24,10 @@
     height:100%;
 }
 
+.profilePic {
+    
+}
+
 .heroBG {
     /* background-image: url("../images/bg3.png"); */
     /* background-color: rgb(10, 10, 10); */
@@ -177,6 +181,10 @@ body {
 
     .projectTile {
         width:80vw;
+    }
+    
+    .profilePic {
+        display: none;
     }
     
     .headerItem {
