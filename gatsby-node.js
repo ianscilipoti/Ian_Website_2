@@ -3,7 +3,7 @@ const path = require('path')
 exports.onCreateNode = ({node, actions}) => {
   const { createNodeField} = actions
 
-  if (node.internal.type === 'MarkdownRemark' && (node.fileAbsolutePath.includes("/projects") || node.fileAbsolutePath.includes("/projects") )) {
+  if (node.internal.type === 'MarkdownRemark' && node.fileAbsolutePath.includes("/projects")) {
     
     const slug = path.basename(node.fileAbsolutePath, '.md')
     const directory = path.dirname(node.fileAbsolutePath).split(path.sep).slice(-2)[0]

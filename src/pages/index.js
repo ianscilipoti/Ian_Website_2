@@ -1,6 +1,6 @@
 import * as React from "react"
 import "../styles/style.css"
-import {useState, useEffect} from "react"
+// import {useState} from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Background from "../components/background"
@@ -17,7 +17,7 @@ import artVideo from "../content/skills/Art/art1.mp4"
 const IndexPage = (props) => {
   // const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   // const videoRef = useRef();
 
@@ -41,20 +41,20 @@ const IndexPage = (props) => {
 
   };
 
-  useEffect(() => {
-    //Implementing the setInterval method
-    const interval = setInterval(() => {
-        setCount(count + 1);
-    }, 6000);
+  // useEffect(() => {
+  //   //Implementing the setInterval method
+  //   const interval = setInterval(() => {
+  //       setCount(count + 1);
+  //   }, 6000);
 
     
 
-    //Clearing the interval
-    return () => {
-      clearInterval(interval)
-      // window.cancelAnimationFrame(req);
-    };
-  }, [count]);
+  //   //Clearing the interval
+  //   return () => {
+  //     clearInterval(interval)
+  //     // window.cancelAnimationFrame(req);
+  //   };
+  // }, [count]);
 
 
   return <React.Fragment>
@@ -69,8 +69,9 @@ const IndexPage = (props) => {
             {
               display:"flex", 
               justifyContent:"space-between",
-              alignItems:"center",
-              width:"min(1000px, 90%)", 
+              alignItems:"flex-start",
+              // justifyContent:"start",
+              width:"min(900px, 90%)", 
               left:"50%",
               top:"50%",
               position:"absolute",
@@ -114,19 +115,20 @@ const IndexPage = (props) => {
             <div style={{
               flexDirection:"column",
               alignItems:"center",
-              display:"flex"
+              display:"flex",
+              width:"min(300px, 90%)", 
+              height:"min(300px, 90%)", 
             }}>
               <StaticImage 
                 className="borderRad"
                 style={{
-                  width:"min(300px, 90%)", 
-                  height:"min(300px, 90%)", 
+                  
                   // borderRadius:"25%"
                 }} 
                 src={"../content/skills/Ian/Ian.jpeg"} 
                 alt=""
               />
-              <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"20px", fontSize:"1.3em"}} className="links myVoiceColor">Email Me!</a>
+              <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"20px"}} className="links myVoiceColor">Email Me!</a>
             </div>
             
           </div>
@@ -196,7 +198,7 @@ const IndexPage = (props) => {
                     <div className="borderRad skillImage">
                       {node.frontmatter.previewImgs.map((img, i) => 
                           <GatsbyImage 
-                            className={i === (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
+                            // className={i === (count%node.frontmatter.previewImgs.length) ? "fadeIn fade" : "fade"} 
                             style={{position:"absolute", height:"100%"}} 
                             key={img.childImageSharp.id} 
                             image={getImage(img.childImageSharp.gatsbyImageData)} 

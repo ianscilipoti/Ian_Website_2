@@ -3,7 +3,7 @@ import "../styles/style.css"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import Background from "../components/background"
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql} from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ProjectTile = (props) => {
@@ -21,40 +21,6 @@ const ProjectTile = (props) => {
           />
       </div>
   </div>
-  
-  
-  
-  // <div className="projectTile" >
-  //   <Link style={{textDecoration: "none", color:"inherit"}} to={props.slug}>
-  //     <div className="portfolioContent collapseRow">
-  //       <GatsbyImage className="projectTileImage borderRad" style={{flexShrink:"0"}} image={getImage(props.image)} alt={props.title}/> 
-  //       <div className="portfolioInfo">
-  //         {/* <div style={{display:"flex", flexDirection:"column", alignItems:"left", justifyContent:"space-between"}}> */}
-  //           <h1 style={{margin:"0px"}}> {props.title} </h1>
-
-  //           <div dangerouslySetInnerHTML={{__html: props.node.html}}/>
-  //       </div> 
-  //     </div>
-
-
-      {/* relevant skills section */}
-      {/* <div className="projectRelSkills">
-        {props.skills.map(skill => <p 
-          className="borderRad"
-          key={skill}
-          style={{
-            margin:"6px",
-            padding:"6px",
-            fontSize:"80%",
-            color:"lightgrey",
-            backgroundColor:"rgb(50, 50, 50)",
-            border:"solid",
-            borderColor:"lightgray",
-            borderWidth:"1.5px"
-          }}>{skill}</p>)}
-      </div> */}
-  //   </Link> 
-  // </div>
 }
 
 const Work = (props) => {
