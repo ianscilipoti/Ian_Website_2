@@ -337,7 +337,7 @@ body {
     }
     
     .profilePic {
-        display: none;
+        display: none !important;
     }
     
     .introText {
