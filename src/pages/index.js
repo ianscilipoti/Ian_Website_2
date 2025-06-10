@@ -80,7 +80,7 @@ const IndexPage = (props) => {
 
             <div style={
               {
-                width:"min(500px, 90%)", 
+                //width:"min(500px, 90%)", 
                 // textAlign:"center",
                 // position:"absolute",
                 // left:"50%",
@@ -88,7 +88,7 @@ const IndexPage = (props) => {
                 // transform:"translate(-50%, -50%)",
                 
               }
-            } className="heroFont">
+            } className="heroFont introText">
 
               <p className="myVoiceColor"> Hello! </p>
 
