@@ -116,8 +116,8 @@ const IndexPage = (props) => {
               flexDirection:"column",
               alignItems:"center",
               display:"flex",
-              width:"min(300px, 90%)", 
-              height:"min(300px, 90%)", 
+              width:"min(300px, 50%)", 
+              height:"min(300px, 50%)", 
             }}>
               <StaticImage 
                 className="borderRad"
@@ -128,7 +128,7 @@ const IndexPage = (props) => {
                 src={"../content/skills/Ian/ian2.jpeg"} 
                 alt=""
               />
-              <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"20px"}} className="links myVoiceColor">Email Me!</a>
+              <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"10px"}} className="links myVoiceColor">Email Me!</a>
             </div>
             
           </div>
