@@ -27,7 +27,8 @@
 
 
 .profilePic {
-    
+    width:min(300px, 50%);
+    height:min(300px, 50%);
 }
 
 .heroBG {
