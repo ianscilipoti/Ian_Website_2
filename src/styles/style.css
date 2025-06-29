@@ -3,7 +3,7 @@
 .header {
     width:100%;
     height:50px;
-    position:absolute;
+    /* position:absolute; */
     top:0px;
     display: flex;
     flex-direction: row;
@@ -13,49 +13,129 @@
     z-index: 3;
 }
 
-.hero {
-    /* filter:blur(8px); */
-    opacity: 1;
-    position:absolute;
-    top:0px;
-    z-index: -1;
-    transform:scale(1.05);
-    width:100vw;
-    height:100%;
+.bodyContent {
+    margin:auto;
+    max-width: 1400px;
 }
 
-
+.introSection {
+    height: max(90vh, 800px);
+    display:grid;
+    grid-template-columns: 0.25fr 1fr 0.25fr 1fr 0.25fr; 
+    grid-template-rows: 0.25fr 1fr 0.1fr 0.5fr 0.25fr;
+}
 
 .profilePic {
-    width:min(300px, 50%);
-    height:min(300px, 50%);
+    grid-column-start:4;
+    grid-column-end:5;
+
+    grid-row-start:2;
+    grid-row-end:3;
+
+    margin-left:auto;
+    max-height: 100%;
 }
 
-.heroBG {
-    /* background-image: url("../images/bg3.png"); */
-    /* background-color: rgb(10, 10, 10); */
-    background-size:cover;
-    /* width:100vw;
-    height:100vh; */
-    /* opacity:0.15;
-    filter:invert();
-    position: absolute; */
-    /* height:100vh; */
+.greeting {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end:3;
+    grid-row-start:2;
+    grid-row-end:3;
 }
 
-.heroFont {
-    font-size:1em;
+.emailMe {
+    text-align: center;
+    grid-column-start: 4;
+    
+    grid-column-end:5;
+    grid-row-start:3;
+    grid-row-end:4;
 }
 
-.title {
+.expertise {
+    grid-column-start: 2;
+    grid-column-end:5;
+    grid-row-start:4;
+    grid-row-end:5;
+
+    text-align: center;
+}
+
+.moreAboutMe {
+    grid-column-start: 1;
+    grid-column-end:6;
+    grid-row-start:5;
+    grid-row-end:6;
+}
+
+.expertiseList {
+    display:inline-flex;
+    flex-direction: row;
+}
+
+li {
     margin-left:20px;
-    text-decoration: none;
-    color:inherit;
 }
 
-.navColor {
-    color:rgb(52, 157, 70);
-    font-weight: bold;
+li:first-child {
+    list-style-type: none;
+  }
+
+@media screen and (max-width: 600px) {
+
+    .expertiseList {
+        display:inline-flex;
+        flex-direction: column;
+    }
+
+    li:first-child {
+        list-style-type:unset;
+      }
+
+    .introSection {
+        height: max(90vh, 800px);
+        display:grid;
+        grid-template-columns: 0.25fr 1fr 0.5fr 1fr 0.25fr; 
+        grid-template-rows: 0fr 1fr 0.1fr 0.25fr 0.25fr;
+    }
+
+    .greeting {
+        grid-column-start: 2;
+        grid-column-end:5;
+        grid-row-start:2;
+        grid-row-end:3;
+    }
+
+    .profilePic {
+        grid-column-start:2;
+        grid-column-end:4;
+    
+        grid-row-start:3;
+        grid-row-end:4;
+    }
+
+    .expertise {
+        grid-column-start: 4;
+        grid-column-end:5;
+
+        grid-row-start:3;
+        grid-row-end:4;
+
+        margin-left:20px;
+
+        text-align: left;
+    }
+
+    .emailMe {
+        grid-column-start: 2;
+        grid-column-end:4;
+
+        grid-row-start:4;
+        grid-row-end:5;
+    }
 }
 
 .links {
@@ -76,10 +156,12 @@
 
 .headerItem {
     margin-right: 20px;
+    margin-left:20px;
     color:inherit;
     text-decoration: none;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
+
 .headerItem:hover {
     color:rgb(115, 115, 115);
     cursor: pointer;
@@ -254,18 +336,10 @@ body {
     color:inherit;
 }
 
-.introSection {
-    font-size: larger;
-    /* background-color: #F7FFF3; */
-    width:100%;
-    height:95vh;
-    display:flex;
-    flex-direction: column;
-    left:50%;
-}
+
 
 .introText {
-    width:min(500px, 90%);
+    width:min(400px, 50%);
 }
 
 .genericSection {
@@ -332,13 +406,10 @@ body {
         height:95vw;
         margin:2.5vw;
     }
-    .heroFont {
-        font-size:1em;
-    }
     
-    .profilePic {
+    /* .profilePic {
         display: none !important;
-    }
+    } */
     
     .introText {
         width:95vw;
@@ -367,6 +438,8 @@ body {
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
+
+    margin: auto auto;
 }
 @keyframes bobAnimation {
     from {

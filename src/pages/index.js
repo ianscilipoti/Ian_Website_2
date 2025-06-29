@@ -6,7 +6,6 @@ import Footer from "../components/footer"
 import Background from "../components/background"
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, StaticImage, getImage  } from "gatsby-plugin-image"
-// import { Scrollama, Step } from 'react-scrollama';
 import musicVideo from "../content/skills/Music/audioViz3.mp4"
 import proceduralVideo from "../content/skills/Procedural/Rivers_Small.mp4"
 import fxVideo from "../content/skills/VFX/FireFX.mp4"
@@ -41,158 +40,73 @@ const IndexPage = (props) => {
 
   };
 
-  // useEffect(() => {
-  //   //Implementing the setInterval method
-  //   const interval = setInterval(() => {
-  //       setCount(count + 1);
-  //   }, 6000);
-
-    
-
-  //   //Clearing the interval
-  //   return () => {
-  //     clearInterval(interval)
-  //     // window.cancelAnimationFrame(req);
-  //   };
-  // }, [count]);
-
-
   return <React.Fragment>
     
     <Background>
     <Header/>
-    
 
     <div>
-        <div className="introSection"> 
-          <div className="collapseRow" style={
-            {
-              display:"flex", 
-              justifyContent:"space-between",
-              alignItems:"flex-start",
-              // justifyContent:"start",
-              width:"min(900px, 90%)", 
-              left:"50%",
-              top:"50%",
-              position:"absolute",
-              transform:"translate(-50%, -75%)",
-            }}>
+        <div className="introSection bodyContent"> 
 
-            <div style={
-              {
-                //width:"min(500px, 90%)", 
-                // textAlign:"center",
-                // position:"absolute",
-                // left:"50%",
-                // top:"50%",
-                // transform:"translate(-50%, -50%)",
-                
-              }
-            } className="heroFont introText">
+          <div className="greeting">
 
-              <p className="myVoiceColor"> Hello! </p>
+            <h2 className="myVoiceColor"> Hello! </h2>
 
-              <p> I am a curiosity driven cross-functional technologist with a knack for communication and empathy.</p>
-                
-              <p> I believe that asking the right questions is half the battle. I seek purpose and intentionality in my work. </p>
-
-              {/* <div
-                style={{
-                  display:"flex",
-                  justifyContent:"space-between",
-                  marginTop:"55px",
-                  fontSize:"150%"
-                }}
-                className="collapseRow"
-              >
-                <Link to="/Work" className="links navColor">Case Studies</Link>
-                <Link to="/projects" className="links navColor">Projects</Link>
-                <a href="mailto: ianscilipoti@gmail.com" className="links navColor">Email Me</a>
-              
-              </div> */}
-            </div>
-
-            <div style={{
-              flexDirection:"column",
-              alignItems:"center",
-              display:"flex",
-               
-            }}>
-              <StaticImage 
-                className="borderRad profilePic"
-                style={{
-                  
-                  // borderRadius:"25%"
-                }} 
-                src={"../content/skills/Ian/ian2.jpeg"} 
-                alt=""
-              />
-              <a href="mailto: ianscilipoti@gmail.com" style={{marginTop:"10px"}} className="links myVoiceColor">Email Me!</a>
-            </div>
-            
+            <p> I am a curiosity driven cross-functional technologist with a knack for communication and empathy.</p>      
+            <p> I believe that asking the right questions is half the battle. I seek purpose and intentionality in my work. </p>
           </div>
 
-          <p style={{
-            position:"absolute",
-            width:"100%",
-            textAlign:"center",
-            top:"67vh"
-          }} className="myVoiceColor">Professional Expertise:</p>
+          <StaticImage 
+            className="borderRad profilePic"
+            style={{
+              
+            }}
+            src={"../content/skills/Ian/ian2.jpeg"} 
+            alt=""
+          />
 
-          <p style={{
-            position:"absolute",
-            width:"100%",
-            textAlign:"center",
-            top:"70vh"
-          }}>Full stack prototyping/dev • Vendor/client communication • Emerging technology • Technical liaison</p>
+          <a href="mailto: ianscilipoti@gmail.com" className="links myVoiceColor emailMe">Email Me!</a>
+            
+
+          <div class="expertise">
+            <h2 style={{marginBottom:"0px"}}>Professional Expertise:</h2>
+
+            <ul className="expertiseList" style={{paddingLeft:"5px"}}>
+              <li>Full stack prototyping/dev</li>
+              <li>Vendor/client communication</li>
+              <li>Emerging technology</li>
+              <li>Technical liaison</li>
+            </ul>
+
+            {/* <p>Full stack prototyping/dev • Vendor/client communication • Emerging technology • Technical liaison</p> */}
+          </div>
 
           <div style={{
-            position:"absolute",
-            left:"50%",
-            top:"85vh",
-            transform:"translateX(-50%)",
-            display:"flex", 
-            flexDirection:"row",
-            justifyContent:"start",
-            flexGrow:"0"
-          }}>
-            {/* <Link to="/portfolio" className="myVoiceColor links">Check out my portfolio</Link> 
-            <p style={{margin:"0px 30px"}}>or </p> */}
-            <div style={{
-              display:"flex",
-              alignItems:"center",
-              textAlign:"center",
-              flexDirection:"column"
-            }}>
-              <p style={{marginTop:"0px"}}>more about me</p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" className="bobAnimation" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-              </svg>
-            </div>
+            display:"flex",
+            flexDirection:"column",
+            justifyContent:"center",
+            alignItems:"center"
+          }} className="moreAboutMe">
+            <p style={{marginTop:"0px"}}>more about me</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" className="bobAnimation" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+            </svg>
           </div>
 
         </div>
-
-        
-        {/* </Step> */}
 
         <div style={{
           maxWidth:"1000px",
           margin:"auto"
         }}>
 
-          <br/>
-
-          {props.data.allMarkdownRemark.nodes.map((node, j) => <div key={node.frontmatter.title}>
-          {/* // <Step key={node.frontmatter.title} data={j+2}> */}
-          
+          {props.data.allMarkdownRemark.nodes.map((node, j) => <div key={node.frontmatter.title}>          
               <div className={`skillSection ${(j&1) === 0 ? "collapseRow" : "collapseRowRev"}`}>
                 <div className={`skillInfo`}>
                   <h1 className="myVoiceColor">{node.frontmatter.title}</h1>
                   <p dangerouslySetInnerHTML={{__html: node.html}}/>
                 </div>
 
-                {/* <div className="borderRad skillImage"> */}
                   {node.frontmatter.videoKey == null ? 
                     <div className="borderRad skillImage">
                       {node.frontmatter.previewImgs.map((img, i) => 
@@ -211,10 +125,7 @@ const IndexPage = (props) => {
                       <p className="videoCaption">{node.frontmatter.videoCaption ? node.frontmatter.videoCaption : ''}</p>
                     </div>
                   }
-                  
-                {/* </div> */}
-                
-
+                                  
               </div>
             </div>
           )}
@@ -266,3 +177,19 @@ query {
 `
 
 
+
+
+ {/* <div
+                style={{
+                  display:"flex",
+                  justifyContent:"space-between",
+                  marginTop:"55px",
+                  fontSize:"150%"
+                }}
+                className="collapseRow"
+              >
+                <Link to="/Work" className="links navColor">Case Studies</Link>
+                <Link to="/projects" className="links navColor">Projects</Link>
+                <a href="mailto: ianscilipoti@gmail.com" className="links navColor">Email Me</a>
+              
+              </div> */}
